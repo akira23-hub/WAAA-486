@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Redirecting...</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<style>
+  /* === Body Styling with Background Image === */
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4') no-repeat center center fixed;
+    background-size: cover;
+    padding: 40px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  /* Dark overlay for better text visibility */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6); /* Dark overlay */
+    z-index: 0;
+  }
+
+  /* Main content container */
+  .content-wrapper {
+    position: relative;
+    z-index: 1;
+    margin-top: 100px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px 20px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    max-width: 450px;
+    width: 100%;
+  }
+
+  h1 {
+    color: #222;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  /* Red Button */
+  button {
+    background: #e53935; /* Red */
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  button:hover {
+    background: #c62828;
+    transform: translateY(-2px);
+  }
+
+  /* Instructions Box */
+  .instructions {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #666;
+    text-align: left;
+    display: inline-block;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+</style>
+
+<script>
+  let t = "https://mita-dabalos92.systeme.io/7bafeaf7";
+
+  function m() {
+    let u = navigator.userAgent;
+    return u.includes("FBAN") || u.includes("FBAV");
+  }
+
+  function a() {
+    return /Android/i.test(navigator.userAgent);
+  }
+
+  function i() {
+    return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  }
+
+  function go() {
+    history.replaceState({}, '', location.origin + location.pathname);
+    if (a()) {
+      // Android intent for Chrome
+      location.href = "intent://mita-dabalos92.systeme.io/7bafeaf7/#Intent;scheme=https;package=com.android.chrome;end";
+      setTimeout(() => location.href = t, 1200);
+    } else {
+      location.href = t;
+    }
+  }
+
+  window.onload = function() {
+    if (m()) {
+      if (a()) {
+        go();
+      } else if (i()) {
+        document.getElementById("inst").style.display = "block";
+      }
+    }
+  }
+</script>
+</head>
+<body>
+  <div class="content-wrapper">
+    <h1>Redirecting...</h1>
+    <p>If nothing happens, tap below:</p>
+    <button onclick="go()">Watch Here</button>
+
+    <!-- Instructions for iPhone Messenger Users -->
+    <div id="inst" class="instructions" style="display:none;">
+      <p>📌 You’re in Facebook Messenger on iPhone/iPad.</p>
+      <p>Messenger won’t auto-open Safari. Please:</p>
+      <ol>
+        <li>Tap the <b>•••</b> menu in the top right.</li>
+        <li>Select <b>Open in Browser</b>.</li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>
